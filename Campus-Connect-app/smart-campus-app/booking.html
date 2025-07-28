@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Room | SmartCampus</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <!-- SIDEBAR (reuse) -->
+    <aside class="sidebar">
+      <h2>SmartCampus</h2>
+      <ul>
+        <li><a href="student.html">🏠 Home</a></li>
+        <li><a href="booking.html">📅 Book Room</a></li>
+        <li><a href="grades.html">📊 View Grades</a></li>
+        <li><a href="alerts.html">🔔 Alerts</a></li>
+        <li><a href="resources.html">📚 Resources</a></li>
+        <li><a href="index.html">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+      <h1>Book a Study or Lecture Room</h1>
+
+      <form id="bookingForm" class="booking-form">
+        <label for="room">Select Room:</label>
+        <select id="room" required>
+          <option value="">-- Choose a Room --</option>
+          <option value="A101">A101 - Study Room</option>
+          <option value="B202">B202 - Lecture Hall</option>
+          <option value="C303">C303 - Group Area</option>
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required />
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required />
+
+        <button type="submit">Submit Booking</button>
+      </form>
+    </main>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const room = document.getElementById('room').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (room && date && time) {
+        alert(`✅ Booking confirmed for Room ${room} on ${date} at ${time}`);
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>

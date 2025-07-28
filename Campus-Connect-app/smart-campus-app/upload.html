@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Announcement | SmartCampus</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>SmartCampus</h2>
+      <ul>
+        <li><a href="teacher.html">🏠 Dashboard</a></li>
+        <li><a href="upload.html">📤 Post Announcement</a></li>
+        <li><a href="students.html">🧑‍🎓 View Students</a></li>
+        <li><a href="index.html">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+      <div class="page-header">
+        <h1>Post a New Announcement</h1>
+      </div>
+
+      <form id="announcementForm" class="upload-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <label for="due">Optional Due Date:</label>
+        <input type="date" id="due" />
+
+        <button type="submit">Post Announcement</button>
+      </form>
+    </main>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('announcementForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const message = document.getElementById('message').value;
+      const due = document.getElementById('due').value;
+
+      if (title && message) {
+        alert(`✅ Announcement posted:\n\n📌 ${title}\n📝 ${message}${due ? `\n📅 Due: ${due}` : ''}`);
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
