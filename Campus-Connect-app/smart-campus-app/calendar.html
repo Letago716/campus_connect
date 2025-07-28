@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar | SmartCampus</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2c5c2c6b1.js" crossorigin="anonymous"></script>
+  <style>
+    .calendar-container {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+    }
+    
+    .calendar-main {
+      margin-left: 220px;
+      padding: 2rem;
+      flex: 1;
+      background-color: #f5f7fa;
+    }
+    
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+    
+    .calendar-title {
+      font-size: 2rem;
+      color: #004aad;
+      margin: 0;
+    }
+    
+    .calendar-nav {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .nav-btn {
+      background: #004aad;
+      color: white;
+      border: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn:hover {
+      background: #003a8c;
+      transform: translateY(-2px);
+    }
+    
+    .calendar-grid {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+    
+    .calendar-header-row {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: #004aad;
+      color: white;
+    }
+    
+    .calendar-header-cell {
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .calendar-body {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(6, 120px);
+    }
+    
+    .calendar-cell {
+      border: 1px solid #e2e8f0;
+      padding: 0.5rem;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    .calendar-cell:hover {
+      background-color: #f7fafc;
+    }
+    
+    .calendar-cell.other-month {
+      background-color: #f8fafc;
+      color: #a0aec0;
+    }
+    
+    .calendar-cell.today {
+      background-color: #e6f3ff;
+      border-color: #004aad;
+    }
+    
+    .calendar-cell.selected {
+      background-color: #004aad;
+      color: white;
+    }
+    
+    .date-number {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .event {
+      background: #667eea;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      margin-bottom: 0.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .event:hover {
+      background: #5a67d8;
+      transform: scale(1.02);
+    }
+    
+    .event.class {
+      background: #48bb78;
+    }
+    
+    .event.exam {
+      background: #ed8936;
+    }
+    
+    .event.assignment {
+      background: #e53e3e;
+    }
+    
+    .event.meeting {
+      background: #9f7aea;
+    }
+    
+    .add-event-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #004aad;
+      color: white;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 74, 173, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .add-event-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 74, 173, 0.4);
+    }
+    
+    .legend {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      .calendar-main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      
+      .calendar-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .calendar-body {
+        grid-template-rows: repeat(6, 80px);
+      }
+      
+      .calendar-cell {
+        padding: 0.25rem;
+      }
+      
+      .event {
+        font-size: 0.6rem;
+        padding: 0.125rem 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar-container">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2>SmartCampus</h2>
+      <ul>
+        <li><a href="student.html">🏠 Home</a></li>
+        <li><a href="calendar.html">📅 Calendar</a></li>
+        <li><a href="booking.html">📅 Book Room</a></li>
+        <li><a href="grades.html">📊 View Grades</a></li>
+        <li><a href="alerts.html">🔔 Alerts</a></li>
+        <li><a href="resources.html">📚 Resources</a></li>
+        <li><a href="index.html">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CALENDAR -->
+    <main class="calendar-main">
+      <div class="calendar-header">
+        <h1 class="calendar-title">
+          <i class="fas fa-calendar-alt"></i> Academic Calendar
+        </h1>
+        <div class="calendar-nav">
+          <button class="nav-btn" onclick="previousMonth()">
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="currentMonth" style="font-size: 1.1rem; font-weight: 600; margin: 0 1rem;"></span>
+          <button class="nav-btn" onclick="nextMonth()">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Legend -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background: #48bb78;"></div>
+          <span>Classes</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #ed8936;"></div>
+          <span>Exams</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #e53e3e;"></div>
+          <span>Assignments</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #9f7aea;"></div>
+          <span>Meetings</span>
+        </div>
+      </div>
+      
+      <!-- Calendar Grid -->
+      <div class="calendar-grid">
+        <div class="calendar-header-row">
+          <div class="calendar-header-cell">Sunday</div>
+          <div class="calendar-header-cell">Monday</div>
+          <div class="calendar-header-cell">Tuesday</div>
+          <div class="calendar-header-cell">Wednesday</div>
+          <div class="calendar-header-cell">Thursday</div>
+          <div class="calendar-header-cell">Friday</div>
+          <div class="calendar-header-cell">Saturday</div>
+        </div>
+        <div class="calendar-body" id="calendarBody">
+          <!-- Calendar cells will be generated by JavaScript -->
+        </div>
+      </div>
+    </main>
+    
+  </div>
+  
+  <!-- Add Event Button -->
+  <button class="add-event-btn" onclick="addEvent()" title="Add Event">
+    <i class="fas fa-plus"></i>
+  </button>
+  
+  <script src="../js/main.js"></script>
+  <script>
+    let currentDate = new Date();
+    
+    // Sample events data
+    const events = {
+      '2025-01-15': [
+        { title: 'Math Exam', type: 'exam' },
+        { title: 'Study Group', type: 'meeting' }
+      ],
+      '2025-01-20': [
+        { title: 'Physics Lab', type: 'class' },
+        { title: 'Essay Due', type: 'assignment' }
+      ],
+      '2025-01-25': [
+        { title: 'Chemistry Quiz', type: 'exam' }
+      ],
+      '2025-01-30': [
+        { title: 'Project Presentation', type: 'assignment' },
+        { title: 'Team Meeting', type: 'meeting' }
+      ]
+    };
+    
+    function generateCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const today = new Date();
+      
+      // Update month display
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+      
+      // Get first day of month and number of days
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startDate = new Date(firstDay);
+      startDate.setDate(startDate.getDate() - firstDay.getDay());
+      
+      const calendarBody = document.getElementById('calendarBody');
+      calendarBody.innerHTML = '';
+      
+      // Generate 42 cells (6 weeks * 7 days)
+      for (let i = 0; i < 42; i++) {
+        const cellDate = new Date(startDate);
+        cellDate.setDate(startDate.getDate() + i);
+        
+        const cell = document.createElement('div');
+        cell.className = 'calendar-cell';
+        
+        // Add classes for styling
+        if (cellDate.getMonth() !== month) {
+          cell.classList.add('other-month');
+        }
+        
+        if (cellDate.toDateString() === today.toDateString()) {
+          cell.classList.add('today');
+        }
+        
+        // Date number
+        const dateNumber = document.createElement('div');
+        dateNumber.className = 'date-number';
+        dateNumber.textContent = cellDate.getDate();
+        cell.appendChild(dateNumber);
+        
+        // Add events for this date
+        const dateString = cellDate.toISOString().split('T')[0];
+        if (events[dateString]) {
+          events[dateString].forEach(event => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = `event ${event.type}`;
+            eventDiv.textContent = event.title;
+            eventDiv.onclick = (e) => {
+              e.stopPropagation();
+              showEventDetails(event, dateString);
+            };
+            cell.appendChild(eventDiv);
+          });
+        }
+        
+        // Click handler for cell
+        cell.onclick = () => selectDate(cell, cellDate);
+        
+        calendarBody.appendChild(cell);
+      }
+    }
+    
+    function previousMonth() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      generateCalendar(currentDate);
+    }
+    
+    function nextMonth() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      generateCalendar(currentDate);
+    }
+    
+    function selectDate(cell, date) {
+      // Remove previous selection
+      document.querySelectorAll('.calendar-cell.selected').forEach(c => {
+        c.classList.remove('selected');
+      });
+      
+      // Select current cell
+      cell.classList.add('selected');
+      
+      if (window.SmartCampus) {
+        SmartCampus.showNotification(
+          `Selected ${date.toLocaleDateString()}`,
+          'info',
+          2000
+        );
+      }
+    }
+    
+    function addEvent() {
+      if (window.SmartCampus) {
+        SmartCampus.showNotification(
+          'Add Event feature coming soon! 📅',
+          'info'
+        );
+      }
+    }
+    
+    function showEventDetails(event, date) {
+      if (window.SmartCampus) {
+        SmartCampus.showNotification(
+          `📅 ${event.title} on ${new Date(date).toLocaleDateString()}`,
+          'info'
+        );
+      }
+    }
+    
+    // Initialize calendar
+    generateCalendar(currentDate);
+    
+    // Show welcome notification
+    setTimeout(() => {
+      if (window.SmartCampus) {
+        SmartCampus.showNotification('Welcome to your Academic Calendar! 📅', 'success');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

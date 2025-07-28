@@ -1,0 +1,275 @@
+/* RESPONSIVE DESIGN ENHANCEMENTS */
+
+/* Mobile First Approach */
+@media (max-width: 768px) {
+  /* Login Page Mobile */
+  .login-glass-card {
+    margin: 1rem;
+    padding: 2rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .login-glass-card h1 {
+    font-size: 2rem;
+  }
+  
+  /* Role Selection Mobile */
+  .role-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .role-card {
+    width: 100%;
+    height: 200px;
+  }
+  
+  /* Dashboard Mobile */
+  .dashboard-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    order: 2;
+  }
+  
+  .sidebar ul {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+    padding: 1rem;
+    order: 1;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    width: 100%;
+  }
+  
+  /* Forms Mobile */
+  .booking-form,
+  .upload-form,
+  .contact-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  /* Tables Mobile */
+  .students-table {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .students-table table {
+    font-size: 14px;
+  }
+  
+  .students-table th,
+  .students-table td {
+    padding: 8px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .role-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Screen Enhancements */
+@media (min-width: 1200px) {
+  .dashboard-main {
+    padding: 3rem;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Enhanced Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced Card Hover Effects */
+.card:hover,
+.role-card:hover,
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus States for Accessibility */
+.cta-btn:focus,
+.action-btn:focus,
+.nav-link:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #004aad;
+  outline-offset: 2px;
+  border-color: #004aad;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .features-section {
+    background: #1a202c;
+  }
+  
+  .feature-card {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .feature-title {
+    color: #e2e8f0;
+  }
+  
+  .feature-description {
+    color: #a0aec0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .cta-buttons,
+  .floating-shapes {
+    display: none;
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

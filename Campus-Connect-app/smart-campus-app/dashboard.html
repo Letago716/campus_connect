@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | SmartCampus</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2c5c2c6b1.js" crossorigin="anonymous"></script>
+  <style>
+    .modern-dashboard {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .dashboard-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .dashboard-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .dashboard-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .card-icon {
+      font-size: 2rem;
+      color: #fff;
+      margin-right: 1rem;
+    }
+    
+    .card-title {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .card-content {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .stat-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .welcome-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+    }
+    
+    .welcome-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .welcome-header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    .quick-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    
+    .action-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="modern-dashboard">
+    <div class="welcome-header">
+      <h1>Welcome to SmartCampus 🎓</h1>
+      <p>Your comprehensive campus management system</p>
+    </div>
+    
+    <div class="dashboard-grid">
+      <!-- Quick Access Card -->
+      <div class="dashboard-card" onclick="window.location.href='select-account.html'">
+        <div class="card-header">
+          <i class="fas fa-bolt card-icon"></i>
+          <h3 class="card-title">Quick Access</h3>
+        </div>
+        <div class="card-content">
+          <p>Jump directly to your role-specific dashboard</p>
+          <div class="quick-actions">
+            <a href="student.html" class="action-btn">Student Portal</a>
+            <a href="teacher.html" class="action-btn">Teacher Portal</a>
+            <a href="admin.html" class="action-btn">Admin Panel</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Campus Stats Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <i class="fas fa-chart-bar card-icon"></i>
+          <h3 class="card-title">Campus Statistics</h3>
+        </div>
+        <div class="card-content">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">2,847</div>
+              <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">156</div>
+              <div class="stat-label">Teachers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">45</div>
+              <div class="stat-label">Courses</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12</div>
+              <div class="stat-label">Buildings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recent Activity Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <i class="fas fa-clock card-icon"></i>
+          <h3 class="card-title">Recent Activity</h3>
+        </div>
+        <div class="card-content">
+          <p>📚 New course materials uploaded</p>
+          <p>🎯 Assignment deadlines approaching</p>
+          <p>📅 Room bookings for next week</p>
+          <p>🔔 System maintenance scheduled</p>
+        </div>
+      </div>
+      
+      <!-- System Status Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <i class="fas fa-server card-icon"></i>
+          <h3 class="card-title">System Status</h3>
+        </div>
+        <div class="card-content">
+          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+            <span style="color: #4ade80; margin-right: 0.5rem;">●</span>
+            <span>All systems operational</span>
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+            <span style="color: #4ade80; margin-right: 0.5rem;">●</span>
+            <span>Database: Online</span>
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+            <span style="color: #4ade80; margin-right: 0.5rem;">●</span>
+            <span>Authentication: Active</span>
+          </div>
+          <div style="display: flex; align-items: center;">
+            <span style="color: #fbbf24; margin-right: 0.5rem;">●</span>
+            <span>Maintenance: Scheduled</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Links Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <i class="fas fa-link card-icon"></i>
+          <h3 class="card-title">Quick Links</h3>
+        </div>
+        <div class="card-content">
+          <div class="quick-actions" style="flex-direction: column; align-items: stretch;">
+            <a href="about.html" class="action-btn">About Campus</a>
+            <a href="contact.html" class="action-btn">Contact Support</a>
+            <a href="resources.html" class="action-btn">Resources</a>
+            <a href="booking.html" class="action-btn">Book Room</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- News & Updates Card -->
+      <div class="dashboard-card">
+        <div class="card-header">
+          <i class="fas fa-newspaper card-icon"></i>
+          <h3 class="card-title">News & Updates</h3>
+        </div>
+        <div class="card-content">
+          <p><strong>📢 New Feature:</strong> Mobile app now available</p>
+          <p><strong>🎉 Event:</strong> Tech conference next month</p>
+          <p><strong>⚡ Update:</strong> Improved booking system</p>
+          <p><strong>🔧 Maintenance:</strong> Server upgrade this weekend</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
