@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartCampus Login</title>
+
+  <!-- iOS-style fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Icons: Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2c5c2c6b1.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="Campus-Connect-app/smart-campus-app/css/style.css" />
+</head>
+<body class="login-body">
+
+  <div class="background-blur"></div>
+
+  <div class="login-glass-card">
+    <h1><i class="fas fa-university"></i> SmartCampus</h1>
+    <p class="tagline">Empowering learners, educators, and leaders</p>
+
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="loginEmail"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="loginEmail" placeholder="e.g. user.s@campus.ac.za" required />
+      </div>
+
+      <div class="input-group">
+        <label for="loginPassword"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password" required />
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p class="note">Use <strong>password123</strong> to log in</p>
+  </div>
+
+  <script src="Campus-Connect-app/smart-campus-app/js/auth.js"></script>
+</body>
+</html>
