@@ -1,197 +1,260 @@
-/* GLOBAL STYLES */
-body, html {
+/* ========== iOS-STYLE GLOBAL STYLES ========== */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  background-color: #f5f7fa;
+  box-sizing: border-box;
 }
 
-/* LAYOUT */
-.container {
-  display: flex;
-  height: 100%;
-}
-
-/* LEFT PANEL */
-.left-panel {
-  flex: 1;
-  background-color: #004aad;
-  color: white;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.left-panel h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.left-panel p {
-  font-size: 18px;
-  max-width: 300px;
+body, html {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #1d1d1f;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.left-panel img {
-  margin-top: 40px;
+/* ========== iOS-STYLE LOGIN DESIGN ========== */
+.login-body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 320px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 0;
 }
 
-/* RIGHT PANEL */
-.right-panel {
-  flex: 1;
-  background-color: white;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.login-glass-card {
   position: relative;
-}
-
-.form-toggle {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.form-toggle button {
-  padding: 10px 20px;
-  border: none;
-  background: #e0e0e0;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-.form-toggle .active {
-  background-color: #004aad;
-  color: white;
-}
-
-.form {
-  display: none;
-  flex-direction: column;
-}
-
-.form.active {
-  display: flex;
-}
-
-.form h2 {
-  margin-bottom: 20px;
-}
-
-.form input {
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.form button {
-  padding: 12px;
-  margin-top: 20px;
-  background-color: #004aad;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.helper-link {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
-}
-/* ========== ROLE SELECTION PAGE ========== */
-
-.role-container {
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
-  padding: 60px 20px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.role-container h1 {
+.login-glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.login-glass-card h1 {
   font-size: 32px;
-  color: #004aad;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 40px;
+  font-weight: 400;
 }
 
-.role-grid {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+.input-group {
+  text-align: left;
+  margin-bottom: 24px;
 }
 
-.role-card {
-  width: 220px;
-  height: 240px;
-  background-color: white;
-  border-radius: 14px;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(45deg, #ffffff, #f8f9fa);
+  color: #667eea;
+  border: none;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 16px;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #f8f9fa, #ffffff);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========== iOS-STYLE ROLE SELECTION ========== */
+.role-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #333;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.role-container h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 48px;
+  text-align: center;
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.role-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 48px 32px;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  min-height: 280px;
 }
 
 .role-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.role-card .svg-icon {
+  width: 80px;
+  height: 80px;
+  stroke: white;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.role-card:hover .svg-icon {
+  transform: scale(1.1);
+  stroke: #f0f0f0;
 }
 
 .role-card h2 {
-  margin-top: 15px;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
 }
 
-.svg-icon {
-  width: 60px;
-  height: 60px;
-  stroke: #004aad;
-}
-
-/* Add some distinct hover color if needed */
-.student:hover .svg-icon,
-.teacher:hover .svg-icon,
-.admin:hover .svg-icon {
-  stroke: #0077ff;
-}
-/* ========== STUDENT DASHBOARD ========== */
-
+/* ========== iOS-STYLE DASHBOARD LAYOUT ========== */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-/* Sidebar */
 .sidebar {
-  width: 220px;
-  background-color: #004aad;
-  color: white;
-  padding: 40px 20px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 32px 24px;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .sidebar h2 {
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 800;
+  color: #667eea;
+  margin-bottom: 40px;
+  text-align: center;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .sidebar ul {
@@ -200,478 +263,386 @@ body, html {
 }
 
 .sidebar ul li {
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .sidebar ul a {
-  color: white;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  color: #1d1d1f;
   text-decoration: none;
   font-size: 16px;
-  display: block;
-  transition: all 0.2s ease;
+  font-weight: 500;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .sidebar ul a:hover {
-  transform: translateX(6px);
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-/* Main Content Area */
 .dashboard-main {
-  margin-left: 220px;
+  margin-left: 280px;
   padding: 40px;
   flex: 1;
-  background-color: #f5f7fa;
+  background: transparent;
 }
 
-/* Centered Header */
 .dashboard-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-header h1 {
-  font-size: 32px;
-  color: #004aad;
-  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .dashboard-header .motto {
   font-size: 18px;
-  color: #555;
+  color: #666;
   font-style: italic;
+  font-weight: 400;
 }
 
-/* Dashboard Cards */
 .dashboard-cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 32px;
   text-decoration: none;
-  color: #333;
-  transition: transform 0.2s ease;
+  color: #1d1d1f;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .card h3 {
-  margin-bottom: 10px;
-  color: #004aad;
-}
-/* ========== BOOKING FORM ========== */
-
-.booking-form {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  max-width: 500px;
-  margin: 40px auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.booking-form label {
+.card p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ========== iOS-STYLE FORMS ========== */
+.booking-form,
+.upload-form,
+.contact-form {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form label,
+.upload-form label,
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: #333;
+  color: #1d1d1f;
+  font-size: 16px;
 }
 
+.booking-form input,
 .booking-form select,
-.booking-form input {
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.upload-form input,
+.upload-form textarea,
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 16px;
   font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #1d1d1f;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
 }
 
-.booking-form button {
-  background-color: #004aad;
+.booking-form input:focus,
+.booking-form select:focus,
+.upload-form input:focus,
+.upload-form textarea:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.booking-form button,
+.upload-form button,
+.contact-form button {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
   color: white;
-  padding: 14px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.booking-form button:hover {
-  background-color: #003a8c;
-}
-/* Centering for all page headers */
-.page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 30px;
+.booking-form button:hover,
+.upload-form button:hover,
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(45deg, #764ba2, #667eea);
 }
 
-.page-header h1 {
-  font-size: 28px;
-  color: #004aad;
+/* ========== iOS-STYLE TABLES ========== */
+.grades-table,
+.students-table {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
-/* ========== GRADES TABLE ========== */
 
-.grades-table {
-  margin: 0 auto;
-  max-width: 900px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  overflow-x: auto;
-}
-
-.grades-table table {
+.grades-table table,
+.students-table table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.grades-table th,
+.students-table th {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px 16px;
+  font-weight: 700;
+  font-size: 16px;
   text-align: left;
+}
+
+.grades-table td,
+.students-table td {
+  padding: 18px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  color: #1d1d1f;
   font-size: 16px;
 }
 
-.grades-table th {
-  background-color: #004aad;
-  color: white;
-  padding: 12px 16px;
+.grades-table tr:hover,
+.students-table tr:hover {
+  background: rgba(102, 126, 234, 0.05);
 }
 
-.grades-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #eee;
+/* ========== iOS-STYLE LISTS ========== */
+.alerts-list,
+.resources-list {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 32px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.grades-table tr:hover {
-  background-color: #f9f9f9;
-}
-/* ========== ALERTS PAGE ========== */
-
-.alerts-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+.alert,
+.resource {
+  padding: 24px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
 }
 
-.alert {
-  border-left: 4px solid #004aad;
-  padding-left: 20px;
+.alert:hover,
+.resource:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
 }
 
-.alert h3 {
-  font-size: 18px;
-  color: #004aad;
+.alert h3,
+.resource h3 {
+  color: #667eea;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.alert p,
+.resource p {
+  color: #1d1d1f;
+  font-size: 16px;
+  line-height: 1.6;
   margin-bottom: 8px;
-}
-
-.alert p {
-  margin-bottom: 4px;
-  color: #444;
 }
 
 .alert span {
-  font-size: 13px;
-  color: #888;
-}
-/* ========== RESOURCES PAGE ========== */
-
-.resources-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.resource h3 {
-  color: #004aad;
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.resource p {
-  color: #444;
-  margin-bottom: 6px;
+  color: #666;
+  font-size: 14px;
 }
 
 .resource a {
-  color: #004aad;
+  color: #667eea;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .resource a:hover {
-  color: #002c6f;
+  color: #764ba2;
 }
-/* ========== ABOUT PAGE ========== */
 
+/* ========== PAGE HEADERS ========== */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== ABOUT SECTION ========== */
 .about-section {
-  max-width: 900px;
-  margin: 0 auto;
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 48px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .about-section h2 {
-  color: #004aad;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  color: #667eea;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 32px 0 16px 0;
 }
 
 .about-section p {
-  color: #444;
-  line-height: 1.6;
+  color: #1d1d1f;
+  font-size: 16px;
+  line-height: 1.8;
   margin-bottom: 20px;
 }
 
 .map-container {
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-/* ========== UPLOAD ANNOUNCEMENT PAGE ========== */
-
-.upload-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.upload-form label {
-  font-weight: 600;
-  color: #333;
-}
-
-.upload-form input,
-.upload-form textarea {
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  resize: vertical;
-}
-
-.upload-form button {
-  background-color: #004aad;
-  color: white;
-  padding: 14px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.upload-form button:hover {
-  background-color: #003a8c;
-}
-/* ========== STUDENTS TABLE ========== */
-
-.students-table {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  overflow-x: auto;
-}
-
-.students-table table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 16px;
-}
-
-.students-table th {
-  background-color: #004aad;
-  color: white;
-  padding: 12px 16px;
-}
-
-.students-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #eee;
-}
-
-.students-table tr:hover {
-  background-color: #f9f9f9;
-}
-/* ========== CONTACT FORM ========== */
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.contact-form label {
-  font-weight: 600;
-  color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  resize: vertical;
-}
-
-.contact-form button {
-  background-color: #004aad;
-  color: white;
-  padding: 14px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #003a8c;
-}
-/* ========== MODERN LOGIN DESIGN ========== */
-
-.login-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #004aad, #89c5fd);
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.background-blur {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(12px);
-  z-index: 0;
-}
-
-.login-glass-card {
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  padding: 40px;
   border-radius: 20px;
-  max-width: 400px;
-  width: 90%;
-  color: #fff;
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  margin-top: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
-.login-glass-card h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
+/* ========== RESPONSIVE DESIGN ========== */
+@import url('responsive.css');
 
-.tagline {
-  font-size: 14px;
-  color: #e0e0e0;
-  margin-bottom: 30px;
-}
-
-.input-group {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  font-size: 15px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  outline: none;
-}
-
-.input-group input::placeholder {
-  color: #f0f0f0;
-}
-
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background: #ffffff;
-  color: #004aad;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.login-btn:hover {
-  background: #eaf2ff;
-  transform: translateY(-2px);
-}
-
-.note {
-  font-size: 13px;
-  color: #f0f0f0;
-  margin-top: 20px;
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+  
+  .dashboard-main {
+    margin-left: 0;
+    padding: 20px;
+  }
+  
+  .role-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .login-glass-card {
+    padding: 32px 24px;
+    margin: 20px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+  
+  .role-container h1 {
+    font-size: 28px;
+  }
 }

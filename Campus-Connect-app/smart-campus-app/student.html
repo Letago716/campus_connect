@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Dashboard | SmartCampus</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2c5c2c6b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -14,11 +15,13 @@
     <aside class="sidebar">
       <h2>SmartCampus</h2>
       <ul>
-        <li><a href="student.html">🏠 Home</a></li>
-        <li><a href="booking.html">📅 Book Room</a></li>
+        <li><a href="student.html">🏠 Dashboard</a></li>
+        <li><a href="calendar.html">📅 Calendar</a></li>
+        <li><a href="booking.html">🏢 Book Room</a></li>
         <li><a href="grades.html">📊 View Grades</a></li>
         <li><a href="alerts.html">🔔 Alerts</a></li>
         <li><a href="resources.html">📚 Resources</a></li>
+        <li><a href="home.html">🏠 Home</a></li>
         <li><a href="index.html">🚪 Logout</a></li>
       </ul>
     </aside>
@@ -43,9 +46,18 @@
           <h3>View Alerts</h3>
           <p>Class updates and notifications</p>
         </a>
+        <a href="calendar.html" class="card">
+          <h3>Academic Calendar</h3>
+          <p>View important dates and deadlines</p>
+        </a>
+        <a href="resources.html" class="card">
+          <h3>Learning Resources</h3>
+          <p>Access study materials and guides</p>
+        </a>
       </div>
     </main>
     
   </div>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
