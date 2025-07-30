@@ -45,4 +45,35 @@ Role redirects are automatic based on login input logic in `auth.js`.
 ---
 
 ## 📁 Folder Structure
+SmartCampus/
+│
+├── index.html                  # Landing page (Login/Signup)
+├── select-account.html        # Role selection page (if used)
+├── student.html               # Student dashboard
+├── teacher.html               # Teacher dashboard
+├── admin.html                 # Admin dashboard
+│
+├── css/
+│   ├── style.css              # Main global stylesheet
+│   ├── student.css           # Student-specific styling
+│   ├── teacher.css           # Teacher-specific styling
+│   ├── admin.css             # Admin-specific styling
+│
+├── js/
+│   ├── auth.js               # Login validation & role redirect
+│   ├── student.js            # Student dashboard interactions
+│   ├── teacher.js            # Teacher dashboard interactions
+│   ├── admin.js              # Admin dashboard interactions
+│
+├── assets/
+│   ├── images/               # UI images / hero images
+│   ├── icons/                # Icons used across site
+│
+├── components/
+│   ├── navbar.html           # Reusable top navigation bar
+│   ├── sidebar.html          # Reusable side menu (role-based)
+│
+├── README.md                 # Project overview + instructions
+├── LICENSE                   # (Optional) Licensing file
+└── .gitignore                # Files to ignore when pushing to GitHub
 
