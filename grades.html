@@ -26,50 +26,108 @@
 
     <!-- MAIN -->
     <main class="dashboard-main">
-      <div class="page-header">
-        <h1>Your Grades & Assignments</h1>
-      </div>
-
-      <div class="grades-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Subject</th>
-              <th>Grade</th>
-              <th>Next Assignment</th>
-              <th>Due Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Mathematics</td>
-              <td>82%</td>
-              <td>Algebra Worksheet</td>
-              <td>Aug 5, 2025</td>
-            </tr>
-            <tr>
-              <td>English</td>
-              <td>91%</td>
-              <td>Poetry Essay</td>
-              <td>Aug 8, 2025</td>
-            </tr>
-            <tr>
-              <td>History</td>
-              <td>76%</td>
-              <td>WWII Presentation</td>
-              <td>Aug 12, 2025</td>
-            </tr>
-            <tr>
-              <td>Life Sciences</td>
-              <td>88%</td>
-              <td>DNA Report</td>
-              <td>Aug 10, 2025</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
-    
+  <div class="page-header">
+    <h1>Your Grades & Assignments</h1>
   </div>
+
+  <!-- GPA Loader Card -->
+  <div class="gpa-card">
+    <div class="gpa-loader" id="gpaLoader" style="--gpa: 0deg;">
+      <span id="gpaPercent">0%</span>
+    </div>
+    <div>
+      <h2>Current GPA</h2>
+      <p>Your overall academic performance for this semester.</p>
+    </div>
+  </div>
+
+  <!-- Grades Table -->
+  <div class="grades-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Grade</th>
+          <th>Next Assignment</th>
+          <th>Due Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mathematics</td>
+          <td>82%</td>
+          <td>Algebra Worksheet</td>
+          <td>Aug 5, 2025</td>
+        </tr>
+        <tr>
+          <td>English</td>
+          <td>91%</td>
+          <td>Poetry Essay</td>
+          <td>Aug 8, 2025</td>
+        </tr>
+        <tr>
+          <td>History</td>
+          <td>76%</td>
+          <td>WWII Presentation</td>
+          <td>Aug 12, 2025</td>
+        </tr>
+        <tr>
+          <td>Life Sciences</td>
+          <td>88%</td>
+          <td>DNA Report</td>
+          <td>Aug 10, 2025</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Module Grade Details with Graphs -->
+  <div class="grade-details">
+    <div class="grade-card">
+      <h3>Mathematics</h3>
+      <div>Assignments: <strong>85%</strong></div>
+      <div>Tests: <strong>78%</strong></div>
+      <div>Exam: <strong>83%</strong></div>
+      <div class="bar-graph"><div class="bar-fill math" style="width: 82%;"></div></div>
+    </div>
+    <div class="grade-card">
+      <h3>English</h3>
+      <div>Assignments: <strong>93%</strong></div>
+      <div>Tests: <strong>89%</strong></div>
+      <div>Exam: <strong>91%</strong></div>
+      <div class="bar-graph"><div class="bar-fill english" style="width: 91%;"></div></div>
+    </div>
+    <div class="grade-card">
+      <h3>History</h3>
+      <div>Assignments: <strong>74%</strong></div>
+      <div>Tests: <strong>79%</strong></div>
+      <div>Exam: <strong>75%</strong></div>
+      <div class="bar-graph"><div class="bar-fill history" style="width: 76%;"></div></div>
+    </div>
+    <div class="grade-card">
+      <h3>Life Sciences</h3>
+      <div>Assignments: <strong>90%</strong></div>
+      <div>Tests: <strong>86%</strong></div>
+      <div>Exam: <strong>88%</strong></div>
+      <div class="bar-graph"><div class="bar-fill life" style="width: 88%;"></div></div>
+    </div>
+  </div>
+</main>
+<script>
+  // GPA Loader Animation
+  const gpaTarget = 86; // Example GPA percentage
+  let gpa = 0;
+  const gpaLoader = document.getElementById('gpaLoader');
+  const gpaPercent = document.getElementById('gpaPercent');
+  function animateGPA() {
+    if (gpa < gpaTarget) {
+      gpa++;
+      gpaLoader.style.setProperty('--gpa', `${gpa * 3.6}deg`);
+      gpaPercent.textContent = gpa + '%';
+      requestAnimationFrame(animateGPA);
+    }
+  }
+  animateGPA();
+</script>
 </body>
 </html>
